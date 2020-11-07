@@ -38,27 +38,22 @@ public class ATMService {
                 calculatieNaValidatie( message, chosenAmount);
                 break;
             case 100:
-                saldo -= chosenAmount;
                 message += "SRD" + snelkasOpties[1] + ",-" ;
                 calculatieNaValidatie( message, chosenAmount);
                 break;
             case 200:
-                saldo -= chosenAmount;
                 message += "SRD" + snelkasOpties[2] + ",-";
                 calculatieNaValidatie( message, chosenAmount);
                 break;
             case 400:
-                saldo -= chosenAmount;
                 message += "SRD" + snelkasOpties[3] + ",-";
                 calculatieNaValidatie( message, chosenAmount);
                 break;
             case 600:
-                saldo -= chosenAmount;
                 message += "SRD" + snelkasOpties[4] + ",-";
                 calculatieNaValidatie( message, chosenAmount);
                 break;
             case 800:
-                saldo -= chosenAmount;
                 message += "SRD" + snelkasOpties[5] + ",-";
                 calculatieNaValidatie( message, chosenAmount);
                 break;
@@ -70,7 +65,6 @@ public class ATMService {
             default:
                 System.out.println("Kies aub een snelkas bedrag");
         }
-
 
     }
 }
