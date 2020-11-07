@@ -7,7 +7,7 @@ public class Application {
 
         ATMService atmService = new ATMService(2000);
 
-        atmService.snelkas(600);
+        atmService.snelkas(500);
 
         //   atmService.snelkas(1000);
     }

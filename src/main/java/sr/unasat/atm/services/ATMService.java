@@ -1,5 +1,7 @@
 package sr.unasat.atm.services;
 
+import javax.crypto.spec.PSource;
+
 public class ATMService {
 
     private static Integer[] snelkasOpties = {50, 100, 200, 400, 600, 800, 1000};
@@ -19,41 +21,56 @@ public class ATMService {
         return (saldo - chosenAmount >= 0);
     }
 
-    private void calculatieNaValidatie(double saldo, double chosenAmount) {
-        String message = "Haal uw geld uit het cashvak. U heeft gekozen voor de optie van ";
+    private void calculatieNaValidatie( String message, double chosenAmount) {
         saldo -= chosenAmount;
-        System.out.println(message += "SRD" + snelkasOpties[0] + ",- Uw nieuw saldo bedraagt SRD " + saldo + ",-");
+        System.out.println( message + " Uw nieuw saldo bedraagt SRD " + saldo + ",-");
     }
+
     public void snelkas(int chosenAmount) {
         if (!issaldoToereikend(chosenAmount)) {
             System.out.println("het saldo is niet toereikend");
             return;
         }
+        String message = "Haal uw geld uit het cashvak. U heeft gekozen voor de optie van ";
         switch (chosenAmount) {
             case 50:
-                calculatieNaValidatie(saldo, chosenAmount);
+                message += "SRD" + snelkasOpties[0] + ",-" ;
+                calculatieNaValidatie( message, chosenAmount);
                 break;
             case 100:
-                calculatieNaValidatie(saldo, chosenAmount);
+                saldo -= chosenAmount;
+                message += "SRD" + snelkasOpties[1] + ",-" ;
+                calculatieNaValidatie( message, chosenAmount);
                 break;
             case 200:
-                calculatieNaValidatie(saldo, chosenAmount);
+                saldo -= chosenAmount;
+                message += "SRD" + snelkasOpties[2] + ",-";
+                calculatieNaValidatie( message, chosenAmount);
                 break;
             case 400:
-                calculatieNaValidatie(saldo, chosenAmount);
+                saldo -= chosenAmount;
+                message += "SRD" + snelkasOpties[3] + ",-";
+                calculatieNaValidatie( message, chosenAmount);
                 break;
             case 600:
-                calculatieNaValidatie(saldo, chosenAmount);
+                saldo -= chosenAmount;
+                message += "SRD" + snelkasOpties[4] + ",-";
+                calculatieNaValidatie( message, chosenAmount);
                 break;
             case 800:
-                calculatieNaValidatie(saldo, chosenAmount);
+                saldo -= chosenAmount;
+                message += "SRD" + snelkasOpties[5] + ",-";
+                calculatieNaValidatie( message, chosenAmount);
                 break;
             case 1000:
-                calculatieNaValidatie(saldo, chosenAmount);
+                saldo -= chosenAmount;
+                message += "SRD" + snelkasOpties[6] + ",-";
+                calculatieNaValidatie( message, chosenAmount);
                 break;
             default:
                 System.out.println("Kies aub een snelkas bedrag");
         }
+
 
     }
 }
