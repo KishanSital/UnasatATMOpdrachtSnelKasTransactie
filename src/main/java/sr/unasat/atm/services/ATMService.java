@@ -24,40 +24,40 @@ public class ATMService {
             System.out.println("het saldo is niet toereikend");
             return;
         }
-
         String message = "Haal uw geld uit het cashvak. U heeft gekozen voor de optie van ";
-        saldo -= chosenAmount;
         switch (chosenAmount) {
             case 50:
+                saldo -= chosenAmount;
                 message += "SRD" + snelkasOpties[0] + ",-" + " Uw nieuw saldo bedraagt SRD " + saldo + ",-";
                 break;
             case 100:
+                saldo -= chosenAmount;
                 message += "SRD" + snelkasOpties[1] + ",-"+ " Uw nieuw saldo bedraagt SRD " + saldo + ",-";
-
                 break;
             case 200:
+                saldo -= chosenAmount;
                 message += "SRD" + snelkasOpties[2] + ",-"+ " Uw nieuw saldo bedraagt SRD " + saldo + ",-";
-
                 break;
             case 400:
+                saldo -= chosenAmount;
                 message += "SRD" + snelkasOpties[3] + ",-"+ " Uw nieuw saldo bedraagt SRD " + saldo + ",-";
-
                 break;
             case 600:
+                saldo -= chosenAmount;
                 message += "SRD" + snelkasOpties[4] + ",-"+ " Uw nieuw saldo bedraagt SRD " + saldo + ",-";
-
                 break;
             case 800:
+                saldo -= chosenAmount;
                 message += "SRD" + snelkasOpties[5] + ",-"+ " Uw nieuw saldo bedraagt SRD " + saldo + ",-";
-
                 break;
             case 1000:
+                saldo -= chosenAmount;
                 message += "SRD" + snelkasOpties[6] + ",-"+ " Uw nieuw saldo bedraagt SRD " + saldo + ",-";
-
                 break;
             default:
                 message = "Kies aub een snelkas bedrag";
         }
         System.out.println(message);
+
     }
 }
