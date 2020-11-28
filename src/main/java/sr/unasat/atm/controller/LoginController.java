@@ -17,11 +17,10 @@ public class LoginController {
             as.login(username,password);
             System.out.println("Welkom op de dashboard " + username);
 
-            ATMService atmService = new ATMService(2000000000);
+            ATMService atmService = new ATMService(199999999.69);
 
             atmService.snelkas(1000);
 
-            //   atmService.snelkas(1000);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
