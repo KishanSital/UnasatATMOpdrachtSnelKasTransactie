@@ -17,7 +17,7 @@ public class LoginController {
             as.login(username,password);
             System.out.println("Welkom op de dashboard " + username);
 
-            ATMService atmService = new ATMService(2000);
+            ATMService atmService = new ATMService(2000000000);
 
             atmService.snelkas(1000);
 

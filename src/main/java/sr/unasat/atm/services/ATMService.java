@@ -10,7 +10,7 @@ public class ATMService {
     private static Integer[] snelkasOpties = {50, 100, 200, 400, 600, 800, 1000};
 
     private double saldo;
-
+    private double saldoValue;
     public ATMService(double saldo) {
         this.saldo = saldo;
     }
@@ -22,11 +22,12 @@ public class ATMService {
 
 
     private boolean issaldoToereikend(int chosenAmount) {
+        saldoValue = saldo;
         return (saldo - chosenAmount >= 0);
+
     }
 
-    private void calculatieNaValidatie( String message, double chosenAmount) {
-        saldo -= chosenAmount;
+    private void calculatieNaValidatie( String message) {
         String pattern = "###,###.###";
         DecimalFormat decimalFormat = new DecimalFormat(pattern);
         String formattedSaldo = decimalFormat.format(saldo);
@@ -37,40 +38,42 @@ public class ATMService {
         if (!issaldoToereikend(chosenAmount)) {
             System.out.println("het saldo is niet toereikend");
             return;
-        }
-        String message = "Haal uw geld uit het cashvak. U heeft gekozen voor de optie van ";
-        switch (chosenAmount) {
-            case 50:
-                message += "SRD " + snelkasOpties[0] + ",-" ;
-                calculatieNaValidatie( message, chosenAmount);
-                break;
-            case 100:
-                message += "SRD " + snelkasOpties[1] + ",-" ;
-                calculatieNaValidatie( message, chosenAmount);
-                break;
-            case 200:
-                message += "SRD " + snelkasOpties[2] + ",-";
-                calculatieNaValidatie( message, chosenAmount);
-                break;
-            case 400:
-                message += "SRD " + snelkasOpties[3] + ",-";
-                calculatieNaValidatie( message, chosenAmount);
-                break;
-            case 600:
-                message += "SRD " + snelkasOpties[4] + ",-";
-                calculatieNaValidatie( message, chosenAmount);
-                break;
-            case 800:
-                message += "SRD " + snelkasOpties[5] + ",-";
-                calculatieNaValidatie( message, chosenAmount);
-                break;
-            case 1000:
-                saldo -= chosenAmount;
-                message += "SRD " + snelkasOpties[6] + ",-";
-                calculatieNaValidatie( message, chosenAmount);
-                break;
-            default:
-                System.out.println("Kies aub een snelkas bedrag");
+        } else {
+            String message = "Haal uw geld uit het cashvak. U heeft gekozen voor de optie van ";
+
+            switch (chosenAmount) {
+                case 50:
+                    message += "SRD " + snelkasOpties[0] + ",-";
+                    calculatieNaValidatie(message);
+                    break;
+                case 100:
+                    message += "SRD " + snelkasOpties[1] + ",-";
+                    calculatieNaValidatie(message);
+                    break;
+                case 200:
+                    message += "SRD " + snelkasOpties[2] + ",-";
+                    calculatieNaValidatie(message);
+                    break;
+                case 400:
+                    message += "SRD " + snelkasOpties[3] + ",-";
+                    calculatieNaValidatie(message);
+                    break;
+                case 600:
+                    message += "SRD " + snelkasOpties[4] + ",-";
+                    calculatieNaValidatie(message);
+                    break;
+                case 800:
+                    message += "SRD " + snelkasOpties[5] + ",-";
+                    calculatieNaValidatie(message);
+                    break;
+                case 1000:
+                    saldo -= chosenAmount;
+                    message += "SRD " + snelkasOpties[6] + ",-";
+                    calculatieNaValidatie(message);
+                    break;
+                default:
+                    System.out.println("Kies aub een snelkas bedrag");
+            }
         }
 
     }
